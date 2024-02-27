@@ -1,11 +1,23 @@
-function stringChop(str, size) {
-    const result = [];
+function stringChop(str, size) { 
+	 if (!str) {
+        return [];
+    }
 
-    for (let i = 0; i < str.length; i += size) {
-        result.push(str.slice(i, i + size));
+    const result = [];
+    let startIndex = 0;
+
+    // Iterate over the string in chunks of size 'size'
+    while (startIndex < str.length) {
+        // Extract a chunk of the string with length equal to 'size'
+        const chunk = str.slice(startIndex, startIndex + size);
+        result.push(chunk);
+
+        // Move the start index to the next chunk
+        startIndex += size;
     }
 
     return result;
+   
 }
 
 // Do not change the code below
